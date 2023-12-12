@@ -2,11 +2,11 @@ import React from 'react';
 import {faEnvelope, faLock, faUser,} from '@fortawesome/free-solid-svg-icons'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import './LoginForm.css';
-import signupImg from '../../assets/undraw_online_cv_re_gn0a.svg'
-import singinImg from '../../assets/undraw_mobile_login_re_9ntv.svg'
+import signupImg from '../../assets/login.svg'
+import singinImg from '../../assets/sign_in.svg'
 import { useEffect, useState }  from 'react';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from "react-router-dom";
 
 const LoginForm = () => {
     //user data
@@ -53,8 +53,8 @@ const LoginForm = () => {
 
             setTimeout(() => {
               navigate('/coverbuildergenerator');
-            }, 1000); // Change the delay duration as needed
-    
+            }, 1000);
+
     
             //window.location.href = '/coverbuildergenerator';
           } else {
@@ -95,9 +95,18 @@ const LoginForm = () => {
 
     return (
       <div className="container">
+        <header className="header-container">
+          <div className="header-logo">
+            <h2 className="welcome-header">
+              <span className="cover-logo">cover</span>builder.
+            </h2>
+          </div>
+        </header>
         <div className="forms-container">
           <div className="signin-singup">
-          <h1>Cover Builder</h1>
+            {/* <h1>
+              <span className="cover-logo">cover</span> builder.
+            </h1> */}
             <form onSubmit={loginSubmit} className="sign-in-form">
               <h2 className="header">SIGN IN</h2>
               <div className="input-field">
@@ -127,11 +136,13 @@ const LoginForm = () => {
               <button type="submit" className="btn solid">
                 Login
               </button>
-              {loginStatus === 'success' && (
-                <p className='login-success'>Login Successful! Redirecting...</p>
+              {loginStatus === "success" && (
+                <p className="login-success">
+                  Login Successful! Redirecting...
+                </p>
               )}
-              {loginStatus === 'error' && (
-                <p className='login-error'>Uh-oh, Please try again.</p>
+              {loginStatus === "error" && (
+                <p className="login-error">Uh-oh, Please try again.</p>
               )}
             </form>
 
@@ -215,9 +226,9 @@ const LoginForm = () => {
               <h3>Start Now</h3>
               <p>
                 Unlock the door to career opportunities! Log in to{" "}
-                <span className="app-name">Cover Builder</span> and let us assist
-                you in crafting personalized cover letters that open doors to
-                your dream job.
+                <span className="app-name">Cover Builder</span> and let us
+                assist you in crafting personalized cover letters that open
+                doors to your dream job.
               </p>
               <button
                 className="btn transparent"

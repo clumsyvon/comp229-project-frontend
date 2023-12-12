@@ -2,7 +2,7 @@
     position: relative;
     width: 100%;
     min-height: 100vh;
-    background-color: #f0f0f0;
+    background-color: #fff;
     overflow: hidden;
 }
 
@@ -12,7 +12,7 @@
     width: 2000px;
     height: 2000px;
     border-radius: 50%;
-    background: linear-gradient(-45deg, #4b525f, #1c1e1e);
+    background: linear-gradient(-45deg, #0d446b, #2a97e6);
     top: -10%;
     right: 48%;
     transform: translateY(-50%);
@@ -75,7 +75,7 @@ form.sign-up-form {
     max-width: 300px;
     width: 100%;
     height: 55px;
-    background-color: #fff;
+    background-color: #f0f0f0;
     margin: 10px 0;
     border-radius: 55px;
     display: grid;
@@ -115,18 +115,25 @@ form.sign-up-form {
     outline: none;
     border-radius: 49px;
     cursor: pointer;
-    background-color: #0b757f;
+    background-color: #01b0ff;
     color: #fff;
     text-transform: uppercase;
     font-weight: 600;
     margin: 10px 0;
     transition: .5s;
-    box-shadow: #333 5px 5px;
+    
 }
 
-.btn:hover{
-    background-color: #333 ;
-    color: #fff;
+.btn.solid:hover{
+    background-color: #01b0ff;
+    box-shadow: 0 8px 0 #067cb3;
+    transition-duration: 0.2s;
+    transform: translateY(-7px);
+}
+
+.btn.transparent:hover {
+    border-color: #00adbc;
+    color: #00adbc;
 }
 
 .image{
@@ -353,6 +360,10 @@ form.sign-up-form {
         transform: translate(-50%, 0);
         left: 50%;
     }
+
+    .header-container {
+        display: none;
+    }
 }
 
 
@@ -377,6 +388,9 @@ form.sign-up-form {
     .container.sign-up-mode::before{
         bottom: 28%;
         left: 50%;
+    }
+    .header-container {
+        display: none;
     }
     
 }

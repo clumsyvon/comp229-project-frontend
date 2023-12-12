@@ -5,8 +5,19 @@ import {faBuildingUser, faUser, faWandMagicSparkles, faPeopleGroup, faLaptopFile
 import './Form.css'
 import image1 from '../../assets/interview.svg'
 import image2 from '../../assets/generate.svg'
-
+import { useNavigate, Link } from 'react-router-dom';
 const Form = () => {
+
+
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const token = sessionStorage.getItem('token');
+    if (!token) {
+      navigate('/login');
+    }
+  }, [navigate]);
+
 
   const [name, setName] = useState('');
   const [company, setCompany] = useState('');
@@ -18,6 +29,8 @@ const Form = () => {
   const [isLoading, setIsLoading] = useState(false);
   
   const [count, setCount] = useState(0);
+
+
 
   useEffect(() => {
     let interval;
@@ -87,9 +100,26 @@ const Form = () => {
     }
   };
 
+  const handleLogout = () => {
+    sessionStorage.removeItem('token');
+    navigate('/');
+  };
+
   return (
     <div className="container-1">
-      <h1>Cover Builder</h1>
+      <header className="header-container">
+        <div className="header-logo">
+          <h2 className="welcome-header">
+            <span className="cover-logo">cover</span>builder.
+          </h2>
+        </div>
+        <div className="navbar">
+        <button className="logout-btn" onClick={handleLogout}>
+          Logout
+        </button>
+        </div>
+      </header>
+      {/* <h1 className='text-logo'><span className='cover-logo'>cover</span> builder.</h1> */}
       <div className="cover-container">
         {/* <img src={image1} alt="" className="image-1" /> */}
         <form onSubmit={handleSubmit} className="form-1">
@@ -138,7 +168,7 @@ const Form = () => {
               rows="3"
               value={details}
               onChange={(e) => setDetails(e.target.value)}
-              placeholder="Paste Job Description Here..."
+              placeholder="Paste Job Description Here... (Optional)"
             ></textarea>
           </div>
           {/* <h4 className='resume-h4'>Attach Resume</h4> */}
@@ -148,14 +178,14 @@ const Form = () => {
             type="file"
             name="resume"
             id="resume"
-            className="upload" 
-            hidden           
+            className="upload"
+            hidden
             onChange={handleFileChange}
           />
           <label htmlFor="resume" className="label-resume">
-            Attach Resume
+            Attach Resume (PDF)
           </label>
-          <span className='file-name'>{fileName}</span>
+          <span className="file-name">{fileName}</span>
           {/* </div> */}
 
           <button type="submit" className="btn2">
