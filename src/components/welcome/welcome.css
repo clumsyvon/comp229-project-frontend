@@ -1,7 +1,7 @@
 .page-container {
     position: relative;
     width: 100%;
-    height: fit-content;
+    height: 100vh;
     background-color: #fff;
 }
 
@@ -20,6 +20,9 @@ header {
     font-size: 40px;
     left: 80px;
     color: #333;
+    text-decoration: none;
+    font-weight: 800;
+    z-index: 99;
 }
 
 .cover-logo {

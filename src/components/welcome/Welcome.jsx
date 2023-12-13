@@ -10,9 +10,9 @@ const Welcome = () => {
       <div className="page-container">
         <header className="header-container">
           <div className="header-logo">
-            <h2 className="welcome-header">
+            <Link to={"/"} className="welcome-header">
               <span className="cover-logo">cover</span>builder.
-            </h2>
+            </Link>
           </div>
           <div className="navbar">
             <h4>Already a member? </h4>

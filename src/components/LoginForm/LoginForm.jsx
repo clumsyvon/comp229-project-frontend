@@ -43,7 +43,7 @@ const LoginForm = () => {
         e.preventDefault();
     
         try {
-          const response = await axios.post('http://localhost:8081/api/login', { username, password });
+          const response = await axios.post('http://10.24.35.198:8081/api/login', { username, password });
           console.log(response.data);
           if (response.data.status === 'success') {
             setLoginStatus('success');
@@ -70,7 +70,7 @@ const LoginForm = () => {
         e.preventDefault();
 
         try{
-            const response = await axios.post('http://localhost:8081/api/signup', {
+            const response = await axios.post('http://10.24.35.198:8081/api/signup', {
                 username,
                 email,
                 password,
@@ -97,9 +97,9 @@ const LoginForm = () => {
       <div className="container">
         <header className="header-container">
           <div className="header-logo">
-            <h2 className="welcome-header">
+          <Link to={"/"} className="welcome-header">
               <span className="cover-logo">cover</span>builder.
-            </h2>
+            </Link>
           </div>
         </header>
         <div className="forms-container">

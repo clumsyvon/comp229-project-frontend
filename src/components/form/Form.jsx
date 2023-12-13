@@ -58,7 +58,7 @@ const Form = () => {
     formData.append('position', position);
     formData.append('details', details);
     axios
-      .post("http://localhost:8081/generate", { name, company, position, details})
+      .post("http://10.24.35.198:8081/generate", { name, company, position, details})
       .then((response) => {
         setCoverLetter(response.data);
         localStorage.setItem('coverLetter', coverLetter);
@@ -76,7 +76,7 @@ const Form = () => {
    const upload = new FormData();
     upload.append("file", file);
     await axios
-      .post("http://localhost:8081/upload", upload)
+      .post("http://10.24.35.198:8081/upload", upload)
       .then((res) => {})
       .catch((er) => console.log(er));
   }
@@ -109,14 +109,14 @@ const Form = () => {
     <div className="container-1">
       <header className="header-container">
         <div className="header-logo">
-          <h2 className="welcome-header">
+          <Link to={"/"} className="welcome-header">
             <span className="cover-logo">cover</span>builder.
-          </h2>
+          </Link>
         </div>
         <div className="navbar">
-        <button className="logout-btn" onClick={handleLogout}>
-          Logout
-        </button>
+          <button className="logout-btn" onClick={handleLogout}>
+            Logout
+          </button>
         </div>
       </header>
       {/* <h1 className='text-logo'><span className='cover-logo'>cover</span> builder.</h1> */}
